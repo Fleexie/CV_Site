@@ -1,0 +1,205 @@
+@import "colors";
+@import "setup";
+@import "mixins";
+
+
+body{
+
+}
+
+
+@media #{$tablet} {
+
+}
+
+@media #{$pc} {
+  body{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-rows: 50px auto 50px;
+    grid-template-areas: "sidebar head"
+  "sidebar main"
+  "sidebar foot";
+  }
+  .Sidebar{
+    grid-area: sidebar;
+    background-color: $bgcolor_side_head;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $primary;
+    .sidebarimg{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: white;
+      margin: 0 auto;
+    }
+    h2{
+      margin: 20px 0;
+    }
+  }
+  header{
+    grid-area: head;
+    background-color: $bgcolor_side_head;
+  }
+  footer{
+    grid-area: foot;
+    background-color: $bgcolor_side_head;
+  }
+  main{
+    grid-area: main;
+    overflow-y: scroll;
+    background-color: $bgcolor_main;
+
+    .projects{
+
+
+      .Project-container{
+        @include Projectimages();
+        background-color: $overlaycolor;
+        padding: 5px;
+        display: grid;
+        grid-template-rows: 30px auto;
+        grid-template-columns: 100%;
+        grid-template-areas:
+                "hl"
+                "img";
+      &:hover{
+        transition: width 500ms, height 500ms;
+        grid-template-rows: 30px 1fr;
+        grid-template-columns: 60% auto;
+        grid-column-gap: 20px;
+        grid-template-areas:
+                "hl hl"
+                "img info";
+        @include Projectimageshover();
+        padding: 20px;
+        cursor: pointer;
+        .projects-info{
+          display: block;
+          grid-area: info;
+        }
+      }
+        .projects-info{
+          display: none;
+        }
+        h3{
+          grid-area: hl;
+        }
+        img{
+          grid-area: img;
+        }
+      }
+    }
+    .Project-AV-popup-container, .Project-DDP-popup-container, .Project-CClub-popup-container{
+      display: none;
+      width: 80%;
+      height: calc(100vh - 100px);
+      position: fixed;
+      bottom: 50px;
+      right: 0;
+      background-color: $overlaycolor;
+      .Project-AV-popup{
+        background-color: lightgrey;
+        padding: 50px;
+        position: fixed;
+        top: 100px;
+        left: 30%;
+        width: 60%;
+        h3{
+          font-size: xx-large;
+        }
+        span, ul, p{
+          font-size: large;
+        }
+      }
+    }
+  }
+}
+
+.svgtest{
+}
+
+.cls-1{
+  width: 90%;
+  height: auto;
+  margin: auto;
+  fill: $primary;
+  &:hover{
+
+  }
+}
+
+.layouttestcontainer{
+  width: 50%;
+  background-color: $primary;
+  margin: 0 auto;
+  .layouttest{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 200px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: $primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: black;
+    bottom: -50px;
+    span{
+      margin-top: 30px;
+    }
+  }
+  &:hover .layouttest{
+    @keyframes move {
+      from {
+        clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+      }
+      to {
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+      }
+    }
+    animation-name: move;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  &:not(:hover) .layouttest{
+    @keyframes moveback {
+      from {
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+      }
+      to {
+        clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+      }
+    }
+    animation-name: moveback;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+}
+
+
+
+.clippathtest{
+  width: 100%;
+  background-color: #464646;
+  color: white;
+  animation: forwards .9s testclip;
+  clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+}
+
+@keyframes testclip {
+  from{
+    clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+  }
+  to{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
