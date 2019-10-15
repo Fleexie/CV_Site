@@ -1,0 +1,9 @@
+@mixin Projectimages {
+  width: 20%;
+  height: auto;
+};
+
+@mixin Projectimageshover{
+  position: relative;
+  width: 50%;
+};
