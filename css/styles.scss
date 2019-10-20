@@ -1,36 +1,183 @@
 @import "colors";
 @import "setup";
 @import "mixins";
+@import "fonts";
 
+@media #{$mobil}{
+  body{
+    padding: 0;
+    header{
+      @include backgroundpattern2;
+      width: 100%;
+      .mobile-head{
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .logo-M{
+          width: 20%;
+          margin: 15px 0;
+        }
+        .sidebarimg-m{
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          margin: 10px 0;
+          background-color: black;
+        }
+        h2{
+          font-size: xx-large;
+          font-weight: bolder;
+        }
+        span{
+          font-size: large;
+        }
+        h3{
+          font-size: larger;
+        }
+      }
+    }
+    .mobile-header-nav{
+      border: black 1px solid;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10%;
+      align-items: center;
+      position: sticky;
+      width: 100%;
+      height: 75px;
+      @include backgroundpattern2;
+      top: 0;
+      left: 0;
+      span{
+        font-size: xx-large;
+      }
+      .nav-logo{
+        height: 65px;
+      }
+    }
+    .Sidebar{
+      display: none;
+    }
+main{
+  margin: 0;
+  width: 100%;
 
-body{
-
+  .intro, .skills{
+    padding: 10%;
+  }
+    .projects{
+      padding: 10px;
+      background-color: $bgcolor_main;
+      h3{
+        font-size: x-large;
+        text-align: center;
+        margin: 5px 0;
+      }
+      .Project-container{
+        margin-top: 10px;
+        padding: 10px 5%;
+        background-color: lighten($bgcolor_main, 5);
+      }
+      .Project-AV-popup-container, .Project-CClub-popup-container, .Project-DDP-popup-container{
+        display: none;
+        padding: 10px 5%;
+        background-color: lighten($bgcolor_main, 5);
+        h3{
+          font-size: x-large;
+          text-align: center;
+        }
+      }
+    }
+  .ratingscontainerv2{
+    width: 100%;
+    grid-template-columns: auto 85%;
+    grid-column-gap: 20px;
+    .fab{
+      font-size: 30px;
+    }
+    .ratings{
+      display: flex;
+      align-items: center;
+      i{
+        margin: 0 3px;
+      }
+    }
+    .positive{
+      color: green;
+      font-size: x-large;
+    }
+    .negative{
+      color: gray;
+      font-size: large;
+    }
+  }
 }
+  }
+}
+
 
 
 @media #{$tablet} {
-
+header{
+  display: none;
+}
+  nav{
+    display: none;
+  }
+  .mobile-header-nav{
+    display: none;
+  }
+  aside{display: none}
 }
 
 @media #{$pc} {
+  h2{
+    font-size: xx-large;
+    font-weight: bolder;
+    margin: 10px 0;
+  }
+  h3{
+    font-size: x-large;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  header{
+    display: none;
+  }
+  nav{
+    display: none;
+  }
+  .mobile-header-nav{
+    display: none;
+  }
+  aside{
+    display: block;
+  padding: 0 20px;
+  }
   body{
     width: 100%;
     height: 100vh;
     display: grid;
-    grid-template-columns: 20% auto;
-    grid-template-rows: 50px auto 50px;
-    grid-template-areas: "sidebar head"
-  "sidebar main"
-  "sidebar foot";
+    grid-template-columns: 25% auto;
+    grid-template-areas: "sidebar main";
   }
   .Sidebar{
-    grid-area: sidebar;
-    background-color: $bgcolor_side_head;
+    @include backgroundpattern2;
     display: flex;
+    grid-area: sidebar;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: $primary;
+    font-size: large;
+    .sidelogo{
+      width: 25%;
+      margin: 10px 0;
+      position: relative;
+      bottom: 70px;
+    }
     .sidebarimg{
       width: 200px;
       height: 200px;
@@ -39,44 +186,63 @@ body{
       margin: 0 auto;
     }
     h2{
-      margin: 20px 0;
+      margin: 10px 0;
+      font-size: xx-large;
+    }
+    span{
+      margin: 10px auto;
+    }
+    h3{
+      font-size: x-large;
+      margin: 10px auto;
+    }
+    ul{
+      li{
+        list-style: none;
+        margin: 5px 0;
+      }
     }
   }
-  header{
-    grid-area: head;
-    background-color: $bgcolor_side_head;
-  }
-  footer{
-    grid-area: foot;
-    background-color: $bgcolor_side_head;
-  }
+
   main{
+    padding-top: 50px;
     grid-area: main;
     overflow-y: scroll;
     background-color: $bgcolor_main;
 
+    .skills, .intro{
+      padding: 0 10%;
+    }
+
     .projects{
-
-
+      margin: 50px 0;
+      p{
+        padding: 20px 10%;
+      }
+      h2{
+        text-align: center;
+      }
       .Project-container{
-        @include Projectimages();
+        width: 50%;
+        margin: 20px auto;
         background-color: $overlaycolor;
-        padding: 5px;
+        padding: 15px;
         display: grid;
-        grid-template-rows: 30px auto;
+        grid-template-rows: 50px auto;
         grid-template-columns: 100%;
         grid-template-areas:
                 "hl"
                 "img";
+
       &:hover{
-        transition: width 500ms, height 500ms;
-        grid-template-rows: 30px 1fr;
+        width: 50%;
+        transition: width 100ms;
+        grid-template-rows: 50px 1fr;
         grid-template-columns: 60% auto;
         grid-column-gap: 20px;
         grid-template-areas:
                 "hl hl"
                 "img info";
-        @include Projectimageshover();
         padding: 20px;
         cursor: pointer;
         .projects-info{
@@ -84,32 +250,36 @@ body{
           grid-area: info;
         }
       }
-        .projects-info{
-          display: none;
+        &:not(:hover){
+          transition: width 100ms;
         }
+
         h3{
           grid-area: hl;
         }
         img{
           grid-area: img;
+
         }
       }
     }
     .Project-AV-popup-container, .Project-DDP-popup-container, .Project-CClub-popup-container{
       display: none;
-      width: 80%;
-      height: calc(100vh - 100px);
+      width: 75%;
+      height: 100vh;
       position: fixed;
-      bottom: 50px;
+      bottom: 0;
       right: 0;
       background-color: $overlaycolor;
+
       .Project-AV-popup{
         background-color: lightgrey;
         padding: 50px;
-        position: fixed;
+        position: relative;
         top: 100px;
-        left: 30%;
-        width: 60%;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, 0);
         h3{
           font-size: xx-large;
         }
@@ -119,87 +289,49 @@ body{
       }
     }
   }
-}
-
-.svgtest{
-}
-
-.cls-1{
-  width: 90%;
-  height: auto;
-  margin: auto;
-  fill: $primary;
-  &:hover{
-
+  .projects-info{
+    display: none;
   }
 }
+.ratingscontainerv2{
+  display: grid;
+  grid-template-columns: 5% auto;
+  grid-template-rows: auto auto;
+  height: 75px;
+  grid-template-areas:
+          "icon h3"
+          "icon ratings";
+  align-content: center;
+  .fab{
+    grid-area: icon;
+    font-size: 50px;
+    align-self: center;
+    justify-self: center;
+  }
+  h3{
+    grid-area: h3;
+  }
+  div{
+    grid-area: ratings;
+  }
+}
 
-.layouttestcontainer{
-  width: 50%;
-  background-color: $primary;
-  margin: 0 auto;
-  .layouttest{
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    width: 200px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: $primary;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: black;
-    bottom: -50px;
-    span{
-      margin-top: 30px;
-    }
+.ratings{
+  display: flex;
+  align-items: center;
+  i{
+    margin: 0 5px;
   }
-  &:hover .layouttest{
-    @keyframes move {
-      from {
-        clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
-      }
-      to {
-        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-      }
-    }
-    animation-name: move;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-  }
-  &:not(:hover) .layouttest{
-    @keyframes moveback {
-      from {
-        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-      }
-      to {
-        clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
-      }
-    }
-    animation-name: moveback;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-  }
-
+}
+.positive{
+  color: green;
+  font-size: xx-large;
+}
+.negative{
+  color: gray;
+  font-size: x-large;
 }
 
 
 
-.clippathtest{
-  width: 100%;
-  background-color: #464646;
-  color: white;
-  animation: forwards .9s testclip;
-  clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
-}
 
-@keyframes testclip {
-  from{
-    clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
-  }
-  to{
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-}
