@@ -2,9 +2,9 @@ $primary: rgb(169, 226, 255);
 $secondary: rgb(99, 99, 99);
 
 $bgcolor_side_head: rgb(70, 70, 70);
-$bgcolor_main: rgb(236, 239, 232);
+$bgcolor_main: lighten($primary, 15);
 
 $txtcolor: rgb(70, 70, 70);
 $txtcolor_negative: $bgcolor_main;
 
-$overlaycolor: rgba(72, 72, 72, 0.37);
+$overlaycolor: rgba(93, 121, 138, 0.37);

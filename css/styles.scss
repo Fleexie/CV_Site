@@ -6,6 +6,7 @@
 @media #{$mobil}{
   body{
     padding: 0;
+
     header{
       @include backgroundpattern2;
       width: 100%;
@@ -60,66 +61,89 @@
     .Sidebar{
       display: none;
     }
-main{
-  margin: 0;
-  width: 100%;
+    main{
+      margin: 0;
+      width: 100%;
 
-  .intro, .skills{
-    padding: 10%;
-  }
-    .projects{
-      padding: 10px;
-      background-color: $bgcolor_main;
-      h3{
-        font-size: x-large;
-        text-align: center;
-        margin: 5px 0;
+      .intro{
+        p{
+          margin: 20px 0;
+        }
       }
-      .Project-container{
-        margin-top: 10px;
-        padding: 10px 5%;
-        background-color: lighten($bgcolor_main, 5);
-      }
-      .Project-AV-popup-container, .Project-CClub-popup-container, .Project-DDP-popup-container{
-        display: none;
-        padding: 10px 5%;
-        background-color: lighten($bgcolor_main, 5);
+
+      .skills{
         h3{
+          margin: 10px 0;
           font-size: x-large;
-          text-align: center;
+          font-weight: bolder;
+        }
+        ul{
+          li{
+            margin: 5px 0;
+            ul{
+              margin-left: 10%;
+            }
+          }
+        }
+      }
+
+      .intro, .skills{
+        padding: 10%;
+      }
+        .projects{
+          padding: 10px;
+          background-color: $bgcolor_main;
+          h3{
+            font-size: x-large;
+            text-align: center;
+            margin: 5px 0;
+          }
+          .Project-container{
+            margin-top: 10px;
+            padding: 10px 5%;
+            background-color: lighten($bgcolor_main, 5);
+          }
+          .Project-AV-popup-container, .Project-CClub-popup-container, .Project-DDP-popup-container{
+            display: none;
+            padding: 10px 5%;
+            background-color: lighten($bgcolor_main, 5);
+            h3{
+              font-size: x-large;
+              text-align: center;
+            }
+          }
+        }
+      .ratingscontainerv2{
+        width: 100%;
+        grid-template-columns: auto 85%;
+        grid-column-gap: 10px;
+        .fab{
+          font-size: 40px;
+        }
+        .ratings{
+          display: flex;
+          align-items: center;
+          i{
+            margin: 0 3px;
+          }
+        }
+        .positive{
+          color: green;
+          font-size: x-large;
+        }
+        .negative{
+          color: gray;
+          font-size: large;
         }
       }
     }
-  .ratingscontainerv2{
-    width: 100%;
-    grid-template-columns: auto 85%;
-    grid-column-gap: 20px;
-    .fab{
-      font-size: 30px;
-    }
-    .ratings{
-      display: flex;
-      align-items: center;
-      i{
-        margin: 0 3px;
-      }
-    }
-    .positive{
-      color: green;
-      font-size: x-large;
-    }
-    .negative{
-      color: gray;
-      font-size: large;
-    }
-  }
-}
   }
 }
 
 
 
 @media #{$tablet} {
+
 header{
   display: none;
 }
@@ -138,6 +162,9 @@ header{
     font-weight: bolder;
     margin: 10px 0;
   }
+  li, span, p {
+    margin: 10px 0;
+  }
   h3{
     font-size: x-large;
     font-weight: bold;
@@ -154,7 +181,7 @@ header{
   }
   aside{
     display: block;
-  padding: 0 20px;
+    padding: 0 20px;
   }
   body{
     width: 100%;
@@ -163,6 +190,7 @@ header{
     grid-template-columns: 25% auto;
     grid-template-areas: "sidebar main";
   }
+
   .Sidebar{
     @include backgroundpattern2;
     display: flex;
@@ -176,7 +204,7 @@ header{
       width: 25%;
       margin: 10px 0;
       position: relative;
-      bottom: 70px;
+      bottom: 50px;
     }
     .sidebarimg{
       width: 200px;
@@ -213,10 +241,14 @@ header{
     .skills, .intro{
       padding: 0 10%;
     }
+    .skills ul li ul{
+      margin-left: 5%;
+    }
 
     .projects{
       margin: 50px 0;
-      p{
+      grid-area: projects;
+      .projects-intro-info{
         padding: 20px 10%;
       }
       h2{
@@ -272,8 +304,8 @@ header{
       right: 0;
       background-color: $overlaycolor;
 
-      .Project-AV-popup{
-        background-color: lightgrey;
+      .Project-popup{
+        background-color: $bgcolor_main;
         padding: 50px;
         position: relative;
         top: 100px;
@@ -285,6 +317,10 @@ header{
         }
         span, ul, p{
           font-size: large;
+          margin: 10px 0;
+        }
+        span{
+          font-weight: bold;
         }
       }
     }
@@ -295,7 +331,7 @@ header{
 }
 .ratingscontainerv2{
   display: grid;
-  grid-template-columns: 5% auto;
+  grid-template-columns: 7% auto;
   grid-template-rows: auto auto;
   height: 75px;
   grid-template-areas:
@@ -304,12 +340,14 @@ header{
   align-content: center;
   .fab{
     grid-area: icon;
-    font-size: 50px;
+    font-size: 60px;
     align-self: center;
-    justify-self: center;
+    margin: 0 auto;
   }
   h3{
     grid-area: h3;
+    margin: 0;
+    padding-left: 5px;
   }
   div{
     grid-area: ratings;
@@ -329,7 +367,7 @@ header{
 }
 .negative{
   color: gray;
-  font-size: x-large;
+  font-size: xx-large;
 }
 
 
