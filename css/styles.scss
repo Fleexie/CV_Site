@@ -357,6 +357,7 @@ header{
 .ratings{
   display: flex;
   align-items: center;
+  justify-content: space-around;
   i{
     margin: 0 5px;
   }
