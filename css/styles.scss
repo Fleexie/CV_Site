@@ -5,6 +5,7 @@
 
 @media #{$mobil}{
   body{
+    background-color: $bgcolor_main;
     padding: 0;
 
     header{
@@ -25,8 +26,8 @@
           height: 200px;
           border-radius: 50%;
           margin: 10px 0;
-          background-color: black;
-        }
+          background-image: url("../images/profil-billede.jpg");
+          background-position: center center;        }
         h2{
           font-size: xx-large;
           font-weight: bolder;
@@ -39,25 +40,7 @@
         }
       }
     }
-    .mobile-header-nav{
-      border: black 1px solid;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 10%;
-      align-items: center;
-      position: sticky;
-      width: 100%;
-      height: 75px;
-      @include backgroundpattern2;
-      top: 0;
-      left: 0;
-      span{
-        font-size: xx-large;
-      }
-      .nav-logo{
-        height: 65px;
-      }
-    }
+
     .Sidebar{
       display: none;
     }
@@ -143,17 +126,12 @@
 
 
 @media #{$tablet} {
-
-header{
-  display: none;
-}
   nav{
     display: none;
   }
-  .mobile-header-nav{
-    display: none;
-  }
   aside{display: none}
+
+
 }
 
 @media #{$pc} {
@@ -201,16 +179,17 @@ header{
     color: $primary;
     font-size: large;
     .sidelogo{
-      width: 25%;
-      margin: 10px 0;
+      width: 15%;
+      margin: 5px 0;
       position: relative;
       bottom: 50px;
     }
     .sidebarimg{
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      background-color: white;
+      background-image: url("../images/profil-billede.jpg");
+      background-position: center center;
       margin: 0 auto;
     }
     h2{
@@ -371,6 +350,22 @@ header{
   font-size: xx-large;
 }
 
+.adobe-software-c{
+  width: fit-content;
+}
+.adobe-software-c:hover .adobe-software{
+  display: flex;
+}
 
+.adobe-software{
+  display: none;
+  position: relative;
+  left: 5%;
+  padding: 50px;
+  background-color: rgba(128, 128, 128, 0.3);
+  width: fit-content;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 
