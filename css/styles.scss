@@ -71,7 +71,7 @@
       }
 
       .intro, .skills{
-        padding: 10%;
+        padding: 50px 10%;
       }
         .projects{
           padding: 10px;
@@ -131,6 +131,22 @@
   }
   aside{display: none}
 
+h2{
+  font-size: x-large;
+  margin: 30px 0;
+}
+  h3{
+    font-size: larger;
+    margin: 20px 0;
+  }
+
+  .projects{
+    padding: 0 10%;
+    h2, p{
+      margin: 0 15%;
+    }
+
+  }
 
 }
 
@@ -283,6 +299,7 @@
       right: 0;
       background-color: $overlaycolor;
 
+
       .Project-popup{
         background-color: $bgcolor_main;
         padding: 50px;
@@ -368,4 +385,7 @@
   justify-content: space-between;
 }
 
-
+h1{
+  margin: 30px auto;
+  text-align: center;
+}
