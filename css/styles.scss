@@ -259,14 +259,14 @@
 
       &:hover{
         width: 50%;
-        transition: width 100ms;
-        grid-template-rows: 50px 1fr;
-        grid-template-columns: 60% auto;
+        transition: height 300ms;
+        grid-template-rows: 50px 1fr auto;
+        grid-template-columns: 100%;
         grid-column-gap: 20px;
         grid-template-areas:
-                "hl hl"
-                "img info";
-        padding: 20px;
+                "hl"
+                "img"
+                "info";
         cursor: pointer;
         .projects-info{
           display: block;
