@@ -25,6 +25,9 @@ li {
 p {
   margin: 0; /* Ingen ydre margen fra paragraffer */
   padding: 0; /* Ingen indre margen fra paragraffer */
+  line-height: 30px;
+  word-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 /* Sikrer billeder er responsive */
